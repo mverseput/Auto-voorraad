@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AutoController!
+{% endblock %}
+
+{% block body %}
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">nummer</th>
+				<th scope="col">Model</th>
+				<th scope="col">Type</th>
+				<th scope="col">prijs(euro)</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for auto in auto %}
+				<tr>
+					<th scope="row">{{auto.id}}</th>
+					<td>{{auto.model}}</td>
+					<td>{{auto.type}}</td>
+					<td>{{auto.prijs}}</td>
+					<td>
+						<a href="{{ path('app_detail', {'id': auto.id}) }}">detail</a>
+					</td>
+					<td>
+						<a href="{{ path('app_update', {'id': auto.id}) }}">update</a>
+					</td>
+					<td>
+						<a href="{{ path('app_delete', {'id': auto.id}) }}">delete</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="{{path('app_insert')}}">insert</a>
+
+{% endblock %}

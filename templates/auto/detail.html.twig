@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">nummer</th>
+				<th scope="col">Model</th>
+				<th scope="col">Type</th>
+				<th scope="col">kleur</th>
+				<th scope="col">gewicht</th>
+				<th scope="col">prijs(euro)</th>
+				<th scope="col">voorraad</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for auto in auto %}
+				<tr>
+					<th scope="row">{{auto.id}}</th>
+					<td>{{auto.model}}</td>
+					<td>{{auto.type}}</td>
+					<td>{{auto.kleur}}</td>
+					<td>{{auto.gewicht}}</td>
+					<td>{{auto.prijs}}</td>
+					<td>{{auto.voorraad}}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="{{path('app_auto')}}">terug</a>
+
+{% endblock %}
